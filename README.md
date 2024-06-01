@@ -2,4 +2,4 @@
 
 https://gymnasium.farama.org/environments/atari/frogger/
 
-![Alt text](https://www.oldgames.sk/images/oldgames/action/Frogger/Covers/frogger-atari2600-box-front.jpg)
+![Alt text](https://m.media-amazon.com/images/I/51UW3OfZMPL._AC_UF894,1000_QL80_.jpg)
