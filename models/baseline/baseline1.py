@@ -1,36 +1,50 @@
-import gymnasium as gym
+import gymnasium
 import time
 
-# Create the Freeway environment with explicit configuration for single-player mode
-env = gym.make('ALE/Freeway-v5', render_mode='human', mode=1)
+"""
+ALE/Frogger-ram-v5: for RAM output with direct information where objects are in the game
+ALE/Frogger-v5: For an RGB Image as output 
+"""
+env = gymnasium.make(
+    "ALE/Frogger-ram-v5", 
+    render_mode = "human", # (human or rgb_array)
+    #mode = 2
+    difficulty = 0
+    )
+
+print("Action space:", env.action_space)
 
 # Reset the environment
-observation, info = env.reset()
+observation = env.reset()
+time.sleep(10)
 
-env.render()
-
-# Main loop
 try:
     step = 0
-    while step < 1000:  # Run for a fixed number of steps, or change condition as needed
-        # Render the environment
-
-        # Move the chicken up every second
-        #time.sleep(1)
+    while step < 1000:
+        #env.render()
         
-        # Perform the action (move up)
-        action = 1  # Action for moving up
-        observation, reward, done, truncated, info = env.step(action)
-        
-        # Log the step, action, reward, and done status
-        print(f"Step: {step}, Action: {action}, Reward: {reward}, Done: {done}, Truncated: {truncated}")
+        # Perform basline action (Move UP every time)
+        if step % 2 == 0:
+            action = 0 
+        else:
+            action = 1
+        step_result = env.step(action)
+        observation, reward, done, loss_of_live, info = step_result
+        """
+        observation: array of current state of the game
+        reward: reward of current step
+        done: wether the game terminated or not
+        loss_of_live: indicates whether the current step resulted in the loss of a life
+        info: more information (lives, episode_frame_number, frame_number)
+        """
 
-        # If the game is over, reset the environment
-        if done or truncated:
-            observation, info = env.reset()
+        print(f"Step: {step}, Action: {action}, Reward: {reward}, Loss of Live in this step: {loss_of_live} Lives: {info} Done: {done}")
+        
+        # Reset the env when the game is over
+        if done:
+            observation = env.reset()
             print("Environment reset")
 
         step += 1
 finally:
-    # Close the environment
     env.close()
