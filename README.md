@@ -1,3 +1,3 @@
-# Implementing RF to play the Atari Freeway game
+# Implementing RF to play the Atari Frogger game
 
-https://gymnasium.farama.org/environments/atari/freeway/
+https://gymnasium.farama.org/environments/atari/frogger/
