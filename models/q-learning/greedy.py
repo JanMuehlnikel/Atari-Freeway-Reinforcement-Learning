@@ -93,6 +93,9 @@ for episode in range(episodes):
     plt.ylim(0, max(max(rewards_per_episode), max(average_rewards)) + 10)
     plt.pause(0.01)
 
+    if episode % 100 == 0:
+        plt.savefig("src/qlearning_greedy.png")
+
     print(f"Episode: {episode}, Total Reward: {total_reward}, Moving Average Reward (last {average_window} episodes): {moving_average:.2f}, Epsilon: {epsilon:.4f}")
 
 # Close the environment
