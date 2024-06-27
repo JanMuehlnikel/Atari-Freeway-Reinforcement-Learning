@@ -2,8 +2,8 @@ import random
 from tqdm import tqdm
 import numpy as np
 
-import networks
-from replay_buffer import ReplayBuffer
+import modules.networks as networks
+from modules.replay_buffer import ReplayBuffer
 
 class DQNAgent:
     def __init__(self, REPLAY_BUFFER_MEMORY, MINI_BATCHES_REPLAY, EPSILON, ACTIONS_SIZE, GAMMA, EPSILON_MIN, EPSILON_DECAY_RATE):
