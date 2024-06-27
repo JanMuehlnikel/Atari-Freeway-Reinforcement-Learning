@@ -126,7 +126,7 @@ def train_policy_gradient(env, policy_network, episodes, gamma, render_interval,
 
 # HYPERPARAMETERS
 alpha = 0.001  # Learning rate for the optimizer
-gamma = 0.99  # Discount factor
+gamma = 0.90  # Discount factor
 episodes = 10000  # Number of episodes
 render_interval = 500  # Episode interval for rendering
 average_window = 100  # Moving average window size
