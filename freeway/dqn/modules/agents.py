@@ -14,30 +14,22 @@ class DQNAgent:
         self.GAMMA = GAMMA
         self.EPSILON_MIN = EPSILON_MIN
         self.EPSILON_DECAY_RATE = EPSILON_DECAY_RATE
-        self.model = networks.build_dqn(LEARNING_RATE=LEARNING_RATE)
-        self.target_model = networks.build_dqn(LEARNING_RATE=LEARNING_RATE)
+        self.model = networks.build_dense_dqn(LEARNING_RATE=LEARNING_RATE)
+        self.target_model = networks.build_dense_dqn(LEARNING_RATE=LEARNING_RATE)
         self.update_target_model()
     
     def update_target_model(self):
         self.target_model.set_weights(self.model.get_weights())
     
     def remember(self, state, action, reward, next_state, done):
-        # flattend_array_state = np.expand_dims(state.reshape(-1), axis=0)
-        # flattend_array_next_state = np.expand_dims(next_state.reshape(-1), axis=0)
         self.memory.add((state, action, reward, next_state, done))
     
-    def predict_action(self, stacked_array):
-        # flatten array for model
-        #flattend_array = np.expand_dims(stacked_array.reshape(-1), axis=0)
-
+    def predict_action(self, state_array):
         if np.random.rand() <= self.EPSILON:
             return random.randrange(self.ACTIONS_SIZE)
-        q_values = self.model.predict(stacked_array, verbose=0)
+        q_values = self.model.predict(state_array, verbose=0)
 
         action = np.argmax(q_values[0])
-        #print(q_values)
-        #print(q_values[0])
-        #print(action)
         return action
     
     def replay(self):

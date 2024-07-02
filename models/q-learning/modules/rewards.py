@@ -23,8 +23,9 @@ def calculate_reward(initial_reward:int, distance:int, distance_before:int, tota
 
 def action_based_reward(total_reward, action, distance_travelled, distance_before, current_lives, lives_before):
     # REWARDS
-    death = -100
-    crossing_road = 100
+    death = -30
+    crossing_road = 50
+    reaching_3 = 20
 
     up = 1
     down = -1
@@ -44,11 +45,20 @@ def action_based_reward(total_reward, action, distance_travelled, distance_befor
     elif action == 4:
         total_reward += down
 
-    # reward for death
+    # rewwad for gaining forward progress
+    if distance_travelled > distance_before:
+        total_reward += distance_travelled
+
+    # negative reward for death
     if current_lives < lives_before:
         total_reward += death
 
-    # reward for crossing road
+    # reward for get tom pos 3
+    if distance_travelled == 3:
+        total_reward += reaching_3
+
+
+    # reward for crossing highway
     if distance_travelled == 6:
         total_reward += crossing_road
 
