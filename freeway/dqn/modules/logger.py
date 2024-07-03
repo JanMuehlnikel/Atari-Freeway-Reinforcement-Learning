@@ -1,5 +1,5 @@
 import os
-import json
+import numpy as np
 
 class EpisodeLogger:
     def __init__(self, log_files_dir="logs/"):
@@ -19,14 +19,10 @@ class EpisodeLogger:
         self._save_all_logs()
 
     def _save_all_logs(self):
-        with open(self.log_file_path + "rewards.txt", 'w') as f:
-            json.dump(self.rewards, f, indent=4)
+        np.save(self.log_file_path + "rewards.npy", np.array(self.rewards))
 
-        with open(self.log_file_path + "moving_avg.txt", 'w') as f:
-            json.dump(self.moving_averages, f, indent=4)
+        np.save(self.log_file_path + "moving_avg.npy", np.array(self.moving_averages))
 
-        with open(self.log_file_path + "distances.txt", 'w') as f:
-            json.dump(self.distances, f, indent=4)
-        
-        with open(self.log_file_path + "epsilons.txt", 'w') as f:
-            json.dump(self.epsilons, f, indent=4)
+        np.save(self.log_file_path + "distances.npy", np.array(self.distances))
+
+        np.save(self.log_file_path + "epsilons.npy", np.array(self.epsilons))

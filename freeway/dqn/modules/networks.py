@@ -1,27 +1,5 @@
 from keras import models, layers, optimizers
 
-def build_cnn_dqn(input_shape=(210, 160, 1), ACTIONS_SIZE=3, LEARNING_RATE=0.0001):
-    model = models.Sequential([
-        layers.Conv2D(32, (3, 3), activation='relu', input_shape=input_shape, padding='same'),
-        layers.MaxPooling2D((2, 2)),
-        layers.Conv2D(64, (3, 3), activation='relu', padding='same'),
-        layers.MaxPooling2D((2, 2)),
-        layers.Conv2D(128, (3, 3), activation='relu', padding='same'),
-        layers.MaxPooling2D((2, 2)),
-        layers.Conv2D(256, (3, 3), activation='relu', padding='same'),
-        layers.MaxPooling2D((2, 2)),
-        layers.Flatten(),
-        layers.Dense(512, activation='relu'),
-        layers.Dense(ACTIONS_SIZE, activation='linear')
-    ])
-
-    optimizer = optimizers.Adam(learning_rate=LEARNING_RATE)
-    model.compile(optimizer=optimizer,
-                  loss='mse',  # Mean Squared Error for Q-learning
-                  metrics=['accuracy'])
-
-    return model
-
 def build_dense_dqn(input_shape=(12, 1), ACTIONS_SIZE=3, LEARNING_RATE=0.0001):
     model = models.Sequential()
     
@@ -38,3 +16,10 @@ def build_dense_dqn(input_shape=(12, 1), ACTIONS_SIZE=3, LEARNING_RATE=0.0001):
     model.compile(optimizer=optimizer, loss='mse', metrics=['accuracy'])
     
     return model
+
+def save_model(model, episode, MODEL_SAVE_INTERVALL, dir="models/"):
+    if episode % MODEL_SAVE_INTERVALL:
+        model.save(dir + f"model_ep_{episode}.h5") 
+
+        model.save_weights('weight_ep_{episode}.h5')
+
