@@ -21,5 +21,5 @@ def save_model(model, episode, MODEL_SAVE_INTERVALL, dir="models/"):
     if episode % MODEL_SAVE_INTERVALL:
         model.save(dir + f"model_ep_{episode}.h5") 
 
-        model.save_weights('weight_ep_{episode}.h5')
+        model.save_weights(dir + f"weights_ep_{episode}.h5")
 
