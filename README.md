@@ -1,8 +1,8 @@
-# Implementing RF to play the Atari Frogger game
+# Implementing RF to play the Atari Freeway game
 
 https://gymnasium.farama.org/environments/atari/frogger/
 
-![Alt text](https://ih0.redbubble.net/image.5150602783.8610/raf,360x360,075,t,fafafa:ca443f4786.jpg)
+![Alt text]
 
 ## Schriftliche Ausarbeitung
 https://www.overleaf.com/1615933815dfhxmtdhhhyd#950292
