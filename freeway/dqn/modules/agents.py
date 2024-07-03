@@ -19,6 +19,7 @@ class DQNAgent:
         self.update_target_model()
     
     def update_target_model(self):
+        # model for prediction / only updated every x episodes
         self.target_model.set_weights(self.model.get_weights())
     
     def remember(self, state, next_state, action, gained_reward, crashed):
