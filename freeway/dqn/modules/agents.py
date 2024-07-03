@@ -21,8 +21,8 @@ class DQNAgent:
     def update_target_model(self):
         self.target_model.set_weights(self.model.get_weights())
     
-    def remember(self, state, action, reward, next_state, done):
-        self.memory.add((state, action, reward, next_state, done))
+    def remember(self, state, next_state, action, gained_reward, crashed):
+        self.memory.add((state, next_state, action, gained_reward, crashed))
     
     def predict_action(self, state_array):
         if np.random.rand() <= self.EPSILON:
@@ -36,18 +36,17 @@ class DQNAgent:
         print("Replay")
         minibatch = self.memory.sample()
         i = 0
-        for state, action, reward, next_state, done in tqdm(minibatch):
+        for state, next_state, action, gained_reward, crashed in tqdm(minibatch):
             i += 1
-            
             # Predict Target Q-Values
             target = self.model.predict(state, verbose=0)
-            if done:
+            if crashed == 1:
                 # If the episode is done the target Q-value for the taken action is set to the received reward
-                target[0][action] = reward
-            elif not done:
+                target[0][action] = gained_reward
+            else:
                 # If the episode is not done, the target Q-value for the taken action is updated using the Bellman equation
                 t = self.target_model.predict(next_state, verbose=0)[0]
-                target[0][action] = reward + self.GAMMA * np.amax(t)
+                target[0][action] = gained_reward + self.GAMMA * np.amax(t)
             self.model.fit(state, target, epochs=1, verbose=0)
                 
         if self.EPSILON > self.EPSILON_MIN:
