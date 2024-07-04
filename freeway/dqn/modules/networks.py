@@ -1,4 +1,5 @@
 from keras import models, layers, optimizers
+import os
 
 def build_dense_dqn(input_shape=(12, 1), ACTIONS_SIZE=3, LEARNING_RATE=0.0001):
     model = models.Sequential()
@@ -18,7 +19,8 @@ def build_dense_dqn(input_shape=(12, 1), ACTIONS_SIZE=3, LEARNING_RATE=0.0001):
     return model
 
 def save_model(model, episode, MODEL_SAVE_INTERVALL, dir="models/"):
-    if episode % MODEL_SAVE_INTERVALL:
+    if episode % MODEL_SAVE_INTERVALL == 0:
+        os.makedirs(os.path.dirname(dir), exist_ok=True)
         model.save(dir + f"model_ep_{episode}.h5") 
 
         model.save_weights(dir + f"weights_ep_{episode}.h5")
