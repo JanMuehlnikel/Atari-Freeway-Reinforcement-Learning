@@ -1,7 +1,7 @@
 import numpy as np
 from collections import deque
 
-def preprocess_ram(ram_state):
+def preprocess_ram(ram_state, path="logs/sample_frame.txt"):
     """
     Reduce the length of the ram array to only the relevant positions.
     RELEVANT RAM SLOTS 
@@ -26,7 +26,7 @@ def preprocess_ram(ram_state):
     # add batch dimension
     ram_state = np.expand_dims(ram_state, axis=0)
 
-    with open("logs/sample_frame.txt", 'w') as f:
+    with open(path, 'w') as f:
         np.savetxt(f, ram_state.flatten(), fmt='%.6f')
 
     return ram_state
