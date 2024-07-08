@@ -1,0 +1,28 @@
+{
+    "MODEL_VERSION": "v_4",
+    "EVIROMENT_VARIANT": "ALE/Freeway-v5",
+    "DIFFICULTY": 0,
+    "MODE": 0,
+    "obs_type": "ram",
+    "STATE_SIZE": 128,
+    "ACTIONS_SIZE": 3,
+    "ACTIONS": [
+        0,
+        1,
+        2
+    ],
+    "LEARNING_RATE": 0.0001,
+    "EPSILON": 0.99,
+    "EPSILON_MIN": 0.05,
+    "EPSILON_DECAY_RATE": 0.999,
+    "GAMMA": 0.95,
+    "RENDER_INTERVAL": 100,
+    "TOTAL_EPISODES": 1000,
+    "REPLAY_INTERVAL": 8,
+    "MINI_BATCHES_REPLAY": 32,
+    "REPLAY_BUFFER_MEMORY": 500000,
+    "MINIMUM_REPLAY_HISTORY": 20000,
+    "AVERAGE_WINDOW": 10,
+    "UPDATE_TARGET_MODEL_FREQUENCY": 1,
+    "MODEL_SAVE_INTERVALL": 20
+}
