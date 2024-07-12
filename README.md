@@ -2,7 +2,5 @@
 
 https://gymnasium.farama.org/environments/atari/freeway/
 
-![Alt text]
-
 ## Schriftliche Ausarbeitung
-https://www.overleaf.com/1615933815dfhxmtdhhhyd#950292
+https://www.overleaf.com/read/bytbrzgrtssh#d2c941
