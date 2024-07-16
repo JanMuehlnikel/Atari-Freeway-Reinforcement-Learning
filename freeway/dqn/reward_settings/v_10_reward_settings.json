@@ -1,0 +1,10 @@
+{
+    "crash": -20,
+    "finishing": 20,
+    "up": 1,
+    "down": -0.5,
+    "nothing": -0.25,
+    "standard_add": 0.1,
+    "clipping_min_reward": -1,
+    "clipping_max_reward": 1
+}
