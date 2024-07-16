@@ -57,6 +57,7 @@ These adjustments could potentially enhance the agent's ability to learn beyond 
 <img src="bad_try.gif" alt="Bad Try" width="600" height="400">
 <br>
 ## DQN Learning Curve
+
 ![Rewards](freeway/dqn/figures/v_20.2/rewards_figure.png)
 
 
