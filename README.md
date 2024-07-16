@@ -50,10 +50,13 @@ Several factors might have contributed to the agent's limited learning:
 
 These adjustments could potentially enhance the agent's ability to learn beyond the baseline method.
 
+## Successful Try
 <img src="succesful_try.gif" alt="Successful Try" width="600" height="400">
 <br>
+## Bad Try
 <img src="bad_try.gif" alt="Bad Try" width="600" height="400">
 <br>
-<img src="freeway/dqn/figures/v_20.2/rewards_figure.png" alt="DQN Learning Curve" width="600">
+## DQN Learning Curve
+![Rewards](freeway/dqn/figures/v_20.2/rewards_figure.png)
 
 
