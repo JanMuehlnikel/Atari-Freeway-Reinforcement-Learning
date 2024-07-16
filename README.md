@@ -28,14 +28,25 @@ This project has been implemented with the gymnasium Framework: https://gymnasiu
 
 # Results
 
-Unfortunately, the agent was only capable of learning the baseline method. As seen in the source code, we chose to implement reinforcement learning using a DQN (Deep Q-Network). Our baseline method was simply to move up.
+This project implements a reinforcement learning agent using a Deep Q-Network (DQN). Despite our efforts, the agent was only able to learn the baseline method, which involved simply moving up.
 
-There are several possible reasons for this outcome:
+## Baseline Method
+- The baseline method for the agent was to only move up.
 
-Reward Structure: The agent might have received too much reward for moving or insufficient punishment for crashing, skewing its learning process.
-Network Complexity: The network might be too simplistic to approximate the Q-values effectively, limiting its ability to learn more complex behaviors.
-Training Resources: The training was conducted on a CPU, which is less efficient than using a GPU for such tasks. Additionally, the training period was limited, which might not have been sufficient for the agent to learn effectively.
-These factors likely contributed to the agent's inability to learn beyond the baseline method.
+## Implementation Details
+- **Algorithm**: Deep Q-Network (DQN)
+- **Baseline Method**: Move up
+- **Reward Structure**: The reward might have been too high for moving actions and too low for crashing, affecting the learning process.
+- **Network Complexity**: The neural network used might have been too simple to accurately approximate the Q-values, limiting the agent's ability to learn more complex behaviors.
+- **Training Environment**: Training was conducted on a CPU with a limited training period, which may have constrained the agent's learning capability.
+
+## Possible Improvements
+Several factors might have contributed to the agent's limited learning:
+1. **Adjusting Rewards**: Modifying the reward structure to balance rewards for moving and penalties for crashing.
+2. **Network Architecture**: Using a more complex neural network to better approximate Q-values.
+3. **Training Resources**: Utilizing a GPU for training and extending the training period to improve learning efficiency.
+
+These adjustments could potentially enhance the agent's ability to learn beyond the baseline method.
 
 ## Succesful Try
 ![Suc](succesful_try.gif)
