@@ -2,5 +2,6 @@ q_table.pkl
 q_table.npy
 models/outdated/
 __pycache__
-models
 frogger
+freeway/dqn/models/v_*
+freeway/dqn/logs
