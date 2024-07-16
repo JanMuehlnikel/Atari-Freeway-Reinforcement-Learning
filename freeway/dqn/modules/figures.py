@@ -35,3 +35,14 @@ def max_distance_plot(max_distance_per_episode, dir):
     plt.title('Max Distance Travelled Per Episode')
     plt.legend()
     plt.savefig(f'{dir}max_distances_figure.png')
+
+def time_plot(time_per_episode, dir):
+    os.makedirs(os.path.dirname(dir), exist_ok=True)
+    plt.figure(figsize=(12, 6))
+    plt.plot(time_per_episode, label='Time')
+    plt.grid(color='gray', linestyle='--', linewidth=0.5)
+    plt.xlabel('Episode')
+    plt.ylabel('Time In Episode')
+    plt.title('Time Per Episode')
+    plt.legend()
+    plt.savefig(f'{dir}time.png')

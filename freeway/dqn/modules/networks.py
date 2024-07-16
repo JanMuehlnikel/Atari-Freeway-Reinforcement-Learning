@@ -1,10 +1,9 @@
 from keras import models, layers, optimizers
 import os
 
-def build_dense_dqn(input_shape=(12, 1), ACTIONS_SIZE=3, LEARNING_RATE=0.0001):
+def build_dense_dqn(input_shape=(13, 1), ACTIONS_SIZE=3, LEARNING_RATE=0.0001):
     model = models.Sequential()
     
-    # Flatten the input to (128,) shape to fit into Dense layers
     model.add(layers.Flatten(input_shape=input_shape))
     
     model.add(layers.Dense(256, activation='relu'))

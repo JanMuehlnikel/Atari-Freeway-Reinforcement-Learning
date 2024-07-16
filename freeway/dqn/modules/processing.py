@@ -10,6 +10,7 @@ def preprocess_ram(ram_state, path="logs/sample_frame.txt"):
     ram_state = reduce_state(ram_state)
     relevant_positions = {
         "player_y": 14,
+        "crash": 16,
         "score": 103,
         "enemy_car_x": list(range(108, 118))
         }
@@ -17,9 +18,11 @@ def preprocess_ram(ram_state, path="logs/sample_frame.txt"):
     # Extract the values for the specified positions into an array
     ram_state = np.array([
         ram_state[relevant_positions["player_y"]],
+        ram_state[relevant_positions["crash"]],
         ram_state[relevant_positions["score"]],
         *[ram_state[i] for i in relevant_positions["enemy_car_x"]]
     ])
+
     # normalize
     ram_state = ram_state / 255
 
@@ -44,12 +47,7 @@ def reduce_state(state):
     state[14] = state[14] // 3
 
     for b in range(108, 118):
-        # The chicken is in the x-posistion ~49
-        if state[b] < 20 or state[b] > 80:
-            # We don't need to represent cars far from the chicken
-            state[b] = 0
-        else:
-            # Reduce the cars x-positions sample space
-            state[b] = state[b] // 3
+        # Reduce the cars x-positions sample space
+        state[b] = state[b] // 3
 
     return state
