@@ -2,6 +2,8 @@
 
 This project has been implemented with the gymnasium Framework: https://gymnasium.farama.org/environments/atari/freeway/
 
+**The Final selected model was v_20.2**
+
 # Setup Instructions
 
 1. **Clone the Repository**:
