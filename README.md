@@ -5,15 +5,11 @@ https://gymnasium.farama.org/environments/atari/freeway/
 ## Schriftliche Ausarbeitung
 https://www.overleaf.com/read/bytbrzgrtssh#d2c941
 
-# Environment Setup Instructions
-
-This repository includes a `requirements.txt` file to easily set up the required Python packages in a new Conda environment.
-
-## Steps to Set Up the Environment
+# Setup Instructions
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/yourusername/your-repo.git
+    git clone [https://github.com/yourusername/your-repo.git](https://github.com/JanMuehlnikel/Atari-Freeway-Reinforcement-Learning)
     cd your-repo
     ```
 
