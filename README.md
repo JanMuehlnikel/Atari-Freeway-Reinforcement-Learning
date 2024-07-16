@@ -51,7 +51,7 @@ Several factors might have contributed to the agent's limited learning:
 These adjustments could potentially enhance the agent's ability to learn beyond the baseline method.
 
 ## Succesful Try
-![Suc](succesful_try.gif)
+![DEMO](succesful_try.gif)
 
 ## Bad Try
 ![Bad](bad_try.gif)
