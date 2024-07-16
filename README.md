@@ -26,3 +26,7 @@ This project has been implemented with the gymnasium Framework: https://gymnasiu
     pip install -r requirements.txt
     ```
 
+# Results
+
+![Demo](succesful_try.gif)
+
